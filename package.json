@@ -1,0 +1,17 @@
+{
+  "name": "sia-hosts",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "start": "node sia-hosts.js"
+  },
+  "main": "sia-hosts.js",
+  "dependencies": {
+    "sia-api" : "*",
+    "underscore" : "*"
+  },
+  "engines": {
+    "node": "*",
+    "npm": "*"
+  }
+}
