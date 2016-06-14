@@ -11,6 +11,12 @@ sia.renter.hosts.active(function(err, resp) {
 		return console.log(err);
 
 	console.log("");
+	console.log(
+		$.PAD("HOST ADDRESS",40), 
+		$.PAD("TOTAL",14), 
+		$.PAD("FREE",14), 
+		$.PAD("PRICE SC/TB/MO",20)
+	);
 
 	var T = {
 		total : 0,
@@ -36,7 +42,7 @@ sia.renter.hosts.active(function(err, resp) {
 			$.PAD(h.netaddress,40), 
 			$.PAD(totalstorage.toFileSize(true),14), 
 			$.PAD(remainingstorage.toFileSize(true),14), 
-			$.PAD(storageprice.toSia(2, 'SC', true),14)+'/TB/MO'
+			$.PAD(storageprice.toSia(2, 'SC', true)+'/TB/MO',20)
 		);
 	})
 
