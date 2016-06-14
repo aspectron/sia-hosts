@@ -1,10 +1,12 @@
-# Sia Hosts - Utility to list Sia hosts in console
+## Sia Hosts - tiny utility to list Sia hosts in console
 
 Can be helpful if you want to do any type of in-house analytics.
 
 ## Requirements
 
 * NodeJs (http://nodejs.org)
+
+You must be running `siad` on your local host.
 
 ## Installation
 
