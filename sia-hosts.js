@@ -9,9 +9,10 @@ var sia = new Sia({
 sia.renter.hosts.active(function(err, resp) {
 	if(err)
 		return console.log(err);
-
+//console.log(resp)
 	console.log("");
 	console.log(
+		$.PAD("UNLOCK HASH",15),
 		$.PAD("HOST ADDRESS",40), 
 		$.PAD("TOTAL",14), 
 		$.PAD("FREE",14), 
@@ -25,7 +26,9 @@ sia.renter.hosts.active(function(err, resp) {
 		price : 0
 	}
 
-	_.each(_.sortBy(resp.hosts, 'netaddress'), function(h) {
+    var hostList = _.uniq(resp.hosts, false, 'unlockhash');
+
+	_.each(_.sortBy(hostList, 'netaddress'), function(h) {
 		if(!h.acceptingcontracts)
 			return;
 
@@ -39,6 +42,7 @@ sia.renter.hosts.active(function(err, resp) {
 		T.price += storageprice;
 
 		console.log(
+			h.unlockhash.substring(0,12)+'...',
 			$.PAD(h.netaddress,40), 
 			$.PAD(totalstorage.toFileSize(true),14), 
 			$.PAD(remainingstorage.toFileSize(true),14), 
